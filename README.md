@@ -1,5 +1,7 @@
 # test-report-junit-xml
 
+[![CircleCI](https://circleci.com/gh/redbadger/test-report-junit-xml.svg?style=svg)](https://circleci.com/gh/redbadger/test-report-junit-xml)
+
 WIP
 
 ## License
