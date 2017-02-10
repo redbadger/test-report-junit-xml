@@ -3,6 +3,15 @@
             [test-report-junit-xml.core :refer :all]
             [clojure.java.io :as io]))
 
+(defn delete-output-dir [f]
+  (let [output-dir (io/file "test/.output")]
+    (when (.exists output-dir)
+      (doseq [file (reverse (file-seq output-dir))]
+        (io/delete-file file))))
+  (f))
+
+(use-fixtures :each delete-output-dir)
+
 (create-ns 'example.first-test)
 (intern 'example.first-test 'passing (fn []))
 (intern 'example.first-test 'failing (fn []))
@@ -14,6 +23,9 @@
 (def slurp-resource (comp slurp io/file io/resource))
 
 (deftest produce-xml
-  (let [input (-> "input.clj" slurp-resource read-string eval)
-        output (slurp-resource "output.xml")]
-    (is (= (slurp-resource "output.xml") (with-out-str (write *out* input))))))
+  (let [messages (-> "input/messages.clj" slurp-resource read-string eval)]
+    (write "test/.output" messages)
+    (doseq [file ["TEST-example.first-test.xml"
+                  "TEST-example.second-test.xml"]]
+      (is (= (slurp-resource (str "output/" file))
+             (slurp (io/file "test/.output" file)))))))
