@@ -31,6 +31,8 @@ As it's only used in tests, it's best to add it only to the `:test` profile:
 
 test-report-junit-xml is built on top of [test-report](https://github.com/redbadger/test-report), which hooks into the [`clojure.test/run-tests`](https://clojure.github.io/clojure/clojure.test-api.html#clojure.test/run-tests) function, so will automatically be included when running `lein test`.
 
+An example project demonstrating usage with CircleCI is available [here](https://github.com/redbadger/test-report-junit-xml-example).
+
 ### Output location
 
 By default, reports are written to a directory called `test-reports` created in the `target` directory.
