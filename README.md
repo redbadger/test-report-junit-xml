@@ -24,7 +24,7 @@ The easiest way to get started is to add the lein-test-report-junit-xml plugin t
 As it's only used in tests, it's best to add it only to the `:test` profile:
 
 ```clojure
-:profiles {:test {:plugins [[lein-test-report-junit-xml "0.1.0-SNAPSHOT"]]}}
+:profiles {:test {:plugins [[lein-test-report-junit-xml "0.1.0"]]}}
 ```
 
 ## Usage

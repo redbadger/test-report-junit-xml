@@ -8,7 +8,7 @@
         options (-> project
                     (:test-report-junit-xml {})
                     (dissoc :output-dir))]
-    (add-profile project {:dependencies [['test-report-junit-xml "0.1.0-SNAPSHOT"]]
+    (add-profile project {:dependencies [['test-report-junit-xml "0.1.0"]]
                           :plugins [['lein-test-report "0.1.0"]]
                           :injections `[(require 'test-report-junit-xml.core)
                                         (require 'clojure.java.io)]
