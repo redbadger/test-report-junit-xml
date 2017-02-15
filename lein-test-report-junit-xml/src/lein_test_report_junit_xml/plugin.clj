@@ -9,7 +9,7 @@
                     (:test-report-junit-xml {})
                     (dissoc :output-dir))]
     (add-profile project {:dependencies [['test-report-junit-xml "0.2.0-SNAPSHOT"]]
-                          :plugins [['lein-test-report "0.2.0-SNAPSHOT"]]
+                          :plugins [['lein-test-report "0.2.0"]]
                           :injections `[(require 'test-report-junit-xml.core)
                                         (require 'clojure.java.io)]
                           :test-report {:summarizers `[#(test-report-junit-xml.core/write ~output-dir % ~options)]}})))
