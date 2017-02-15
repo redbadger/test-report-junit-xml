@@ -48,8 +48,30 @@ The directory (and its parents) will be created if they do not already exist.
 
 ### Customizing output
 
-TODO
+You can customize the formatting of stacktraces by specifying the `:format-stacktrace` option:
 
+```clojure
+:test-report-junit-xml {:format-stacktrace custom/format-stacktrace}
+```
+
+The given function should accept a `Throwable` and return a string with the formatted stacktrace.
+The default is to capture the output of [`clojure.stacktrace/print-cause-trace`](https://clojure.github.io/clojure/clojure.stacktrace-api.html#clojure.stacktrace/print-cause-trace).
+
+For more extensive customization, you can specify the `:format-result` option instead:
+
+```clojure
+:test-report-junit-xml {:format-stacktrace custom/format-result}
+```
+
+The given function should accept a result message (as passed to [`clojure.test/report`](https://clojure.github.io/clojure/clojure.test-api.html#clojure.test/report)) and return a map representing the emitted XML element, for example:
+
+```clojure
+{:tag :failure
+ :attrs {:message "Denied!"}
+ :content "Your test failed :("}
+```
+
+Messages with `{:type :pass}` should usually be ignored by returning `nil` from the function.
 
 ## License
 
