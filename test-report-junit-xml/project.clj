@@ -1,4 +1,4 @@
-(defproject test-report-junit-xml "0.2.0-SNAPSHOT"
+(defproject test-report-junit-xml "0.2.0"
   :description "Library providing JUnit XML output for clojure.test"
   :url "https://github.com/redbadger/test-report-junit-xml"
   :scm {:dir ".."}
