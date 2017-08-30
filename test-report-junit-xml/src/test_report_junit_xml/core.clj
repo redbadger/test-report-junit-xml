@@ -66,6 +66,7 @@
     {:tag :testsuite
      :attrs {:name (-> test-ns :ns ns-name)
              :tests (:test counts)
+             :assertions (:assertion counts)
              :errors (:error counts)
              :failures (:fail counts)
              :time (-> test-ns :time nanos->secs)}
