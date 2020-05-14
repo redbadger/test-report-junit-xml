@@ -60,7 +60,7 @@ The default is to capture the output of [`clojure.stacktrace/print-cause-trace`]
 For more extensive customization, you can specify the `:format-result` option instead:
 
 ```clojure
-:test-report-junit-xml {:format-stacktrace custom/format-result}
+:test-report-junit-xml {:format-result custom/format-result}
 ```
 
 The given function should accept a result message (as passed to [`clojure.test/report`](https://clojure.github.io/clojure/clojure.test-api.html#clojure.test/report)) and return a map representing the emitted XML element, for example:
